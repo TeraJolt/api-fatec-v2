@@ -29,6 +29,12 @@ public class ProdutoController {
         return repository.save(produto);
     }
 
+    @PutMapping("{id}")
+    public Produto update(@PathVariable Long id, @RequestBody Produto produto){
+        produto.setId(id);
+        return repository.save(produto);
+    }
+
     @DeleteMapping("{id}")
     public void delete(@PathVariable Long id){
         repository.deleteById(id);
