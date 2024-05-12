@@ -86,6 +86,7 @@ public class PedidoVenda {
         int maxIndex = itens.size();
         for(int i = 0; i < maxIndex; i++){
            itens.get(i).setPedidoVenda(this);
+           itens.get(i).setValor_total();
         }
 
     }

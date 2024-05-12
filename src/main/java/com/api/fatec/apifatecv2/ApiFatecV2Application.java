@@ -10,8 +10,6 @@ public class ApiFatecV2Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApiFatecV2Application.class, args);
-		LocalDate date = LocalDate.now();
-		System.out.println(date);
 	}
 
 }

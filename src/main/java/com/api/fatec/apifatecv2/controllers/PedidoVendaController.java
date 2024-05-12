@@ -20,8 +20,8 @@ public class PedidoVendaController {
 
 @PostMapping
     private PedidoVenda salvar(@RequestBody PedidoVenda pedidoVenda) {
-        pedidoVenda.setEmissao(LocalDate.now());
-        pedidoVenda.addItem(pedidoVenda.getItens());
+    pedidoVenda.setEmissao(LocalDate.now());
+    pedidoVenda.addItem(pedidoVenda.getItens());
     return repository.save(pedidoVenda);
     }
 
@@ -36,8 +36,12 @@ public class PedidoVendaController {
     }
 
 @PutMapping("{id}")
-    private PedidoVenda atualizar(@RequestBody PedidoVenda pedidoVenda) {
-        return repository.save(pedidoVenda);
+    private PedidoVenda atualizar(@PathVariable Long id, @RequestBody PedidoVenda pedidoVenda) {
+    pedidoVenda.setId(id);
+    pedidoVenda.setEmissao(LocalDate.now());
+
+    pedidoVenda.addItem(pedidoVenda.getItens());
+    return repository.save(pedidoVenda);
     }
 
 @DeleteMapping("{id}")
